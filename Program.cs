@@ -19,7 +19,7 @@ SqlConnection connection = new SqlConnection("""
 
 DataSet TestDB_DS = new DataSet();
 SqlDataAdapter adapter = new SqlDataAdapter("""
-    SELECT * FROM Person
+    SP_SelectPerson
     """, connection);
 
 adapter.Fill(TestDB_DS, "Person");
@@ -27,5 +27,6 @@ adapter.Fill(TestDB_DS, "Person");
 foreach (DataRow row in TestDB_DS.Tables["Person"].Rows)
 {
     Console.WriteLine($"     Name: {row["Name"]}, Age: {row["Age"]} Email: {row["Email"]} NationalCode {row["NationalCode"]}");
+    Console.WriteLine("*************************************************************************************");
 }
 
