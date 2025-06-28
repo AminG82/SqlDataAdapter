@@ -8,9 +8,24 @@ SqlConnection connection = new SqlConnection("""
     """);
 
 
-//SqlCommand command = new SqlCommand("""
-//    SELECT COUNT(*) FROM Person
-//    """, connection);
+SqlCommand countCommand = new SqlCommand("""
+    SELECT COUNT(*) FROM Person
+    """, connection);
+
+SqlCommand createDataBase = new SqlCommand("""
+    Create Database TestDB
+    """, connection);
+
+SqlCommand createTable = new SqlCommand("""
+    Create Table Person
+    (
+        Id int identity(1,1) primary key,
+        Name nvarchar(50) not null,
+        Age int not null,
+        Email nvarchar(50) not null,
+        NationalCode nvarchar(10) not null
+    )
+    """, connection);
 
 //connection.Open();
 //int count = (int)command.ExecuteScalar();
