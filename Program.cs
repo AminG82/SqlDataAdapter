@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.Data.SqlClient;
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 SqlConnection connection = new SqlConnection("""
     Data Source =.; Initial Catalog = TestDB; User ID = sa; Password = amin5123; Encrypt = False;
@@ -25,6 +24,13 @@ SqlCommand createTable = new SqlCommand("""
         Email nvarchar(50) not null,
         NationalCode nvarchar(10) not null
     )
+    """, connection);
+
+SqlCommand insertData = new SqlCommand("""
+         Insert Into Person (Name, Age, Email, NationalCode)
+         Values ('Ali', 30, 'ali@gmail.com , '1234567890'),
+         ('Sara', 25, 'sara@gmail.com, '0987654321'),
+         ('Reza', 28, 'reza@gmail.com, '1122334455')
     """, connection);
 
 //connection.Open();
