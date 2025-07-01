@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 
+
 SqlConnection connection = new SqlConnection("""
     Data Source =.; Initial Catalog = TestDB; User ID = sa; Password = amin5123; Encrypt = False;
     """);
@@ -39,7 +40,7 @@ SqlCommand insertData = new SqlCommand("""
 //connection.Close();
 
 DataSet TestDB_DS = new DataSet();
-SqlDataAdapter adapter = new SqlDataAdapter("""
+    SqlDataAdapter adapter = new SqlDataAdapter("""
     SP_SelectPerson
     """, connection);
 
