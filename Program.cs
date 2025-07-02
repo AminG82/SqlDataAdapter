@@ -40,7 +40,7 @@ SqlCommand insertData = new SqlCommand("""
 //connection.Close();
 
 DataSet TestDB_DS = new DataSet();
-    SqlDataAdapter adapter = new SqlDataAdapter("""
+Microsoft.Data.SqlClient.SqlDataAdapter adapter = new Microsoft.Data.SqlClient.SqlDataAdapter("""
     SP_SelectPerson
     """, connection);
 
