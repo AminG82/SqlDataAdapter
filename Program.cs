@@ -16,7 +16,7 @@ SqlConnection connection = new SqlConnection("""
 
 // Comment until connection.Close(); after first run
 connectionMaster.Open();
-DataBaseCreator.CreateDatabase(connection);         // Create DataBase 
+DataBaseCreator.CreateDatabase(connectionMaster);         // Create DataBase 
 connectionMaster.Close();
 
 connection.Open();
