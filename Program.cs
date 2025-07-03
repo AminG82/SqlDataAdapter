@@ -5,7 +5,7 @@ using System.Data;
 
 
 SqlConnection connectionMaster = new SqlConnection("""
-    Data Source =.; Initial Catalog = master; User ID = sa; Password = amin5123; Encrypt = False;
+    Data Source=.;Initial Catalog=master;User ID=sa; Password = amin5123; Encrypt=False
     """);
 
 // Enter your connection string here
@@ -18,6 +18,12 @@ SqlConnection connection = new SqlConnection("""
 connectionMaster.Open();
 DataBaseCreator.CreateDatabase(connectionMaster);         // Create DataBase 
 connectionMaster.Close();
+
+for (int i = 3; i > 0 ; i--)
+{
+    Console.WriteLine($"Waiting {i}");
+    Thread.Sleep(1000);
+}
 
 connection.Open();
 

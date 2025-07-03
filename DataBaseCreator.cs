@@ -11,7 +11,6 @@ namespace SqlDataAdapter
         {
             SqlCommand createDBCommand = new SqlCommand("""
             Create Database TestDB
-            )
             """, ConnectionString);
             createDBCommand.ExecuteNonQuery();
         }
@@ -28,16 +27,16 @@ namespace SqlDataAdapter
                 NationalCode nvarchar(10) not null
             )
             """, ConnectionString);
-            createTableCommand.ExecuteNonQuery();
+            Console.WriteLine(createTableCommand.ExecuteNonQuery()); 
         }
 
         public static void InsertData(SqlConnection ConnectionString)
         {
             SqlCommand insertDataCommand = new SqlCommand("""
             Insert Into Person (Name, Age, Email, NationalCode)
-            Values ('Ali', 30, 'ali@gmail.com , '1234567890'),
-            ('Sara', 25, 'sara@gmail.com, '0987654321'),
-            ('Reza', 28, 'reza@gmail.com, '1122334455') 
+            Values ('Ali', 30, 'ali@gmail.com', '1234567890'),
+            ('Sara', 25, 'sara@gmail.com', '0987654321'),
+            ('Reza', 28, 'reza@gmail.com', '1122334455')
             """, ConnectionString);
             insertDataCommand.ExecuteNonQuery();
         }
