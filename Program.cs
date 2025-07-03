@@ -1,35 +1,24 @@
 ﻿
 using Microsoft.Data.SqlClient;
+using SqlDataAdapter;
 using System.Data;
 
 SqlConnection connection = new SqlConnection("""
     Data Source =.; Initial Catalog = TestDB; User ID = sa; Password = amin5123; Encrypt = False;
     """);
 
+connection.Open();
+ DataBaseCreator.CreateDatabase(connection);        // Create DataBase
 
-SqlCommand createTable = new SqlCommand("""
-    Create Table Person
-    (
-        Id int identity(1,1) primary key,
-        Name nvarchar(50) not null,
-        Age int not null,
-        Email nvarchar(50) not null,
-        NationalCode nvarchar(10) not null
-    )
-    """, connection);
+DataBaseCreator.CreateTable(connection);            // Create Table
 
-SqlCommand insertData = new SqlCommand("""
-         Insert Into Person (Name, Age, Email, NationalCode)
-         Values ('Ali', 30, 'ali@gmail.com , '1234567890'),
-         ('Sara', 25, 'sara@gmail.com, '0987654321'),
-         ('Reza', 28, 'reza@gmail.com, '1122334455')
-    """, connection);
+DataBaseCreator.InsertData(connection);             // Insert Data to the Table
 
-//connection.Open();
+DataBaseCreator.CountMethod(connection);            // Count Datas in table
 
+connection.Close();
 
-
-//connection.Close();
+/*          //uncomment the following lines to create DataSet And use DataAdapter
 
 DataSet TestDB_DS = new DataSet();
 Microsoft.Data.SqlClient.SqlDataAdapter adapter = new Microsoft.Data.SqlClient.SqlDataAdapter("""
@@ -44,3 +33,4 @@ foreach (DataRow row in TestDB_DS.Tables["Person"].Rows)
     Console.WriteLine("*************************************************************************************");
 }
 
+*/
