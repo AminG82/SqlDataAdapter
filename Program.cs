@@ -14,7 +14,7 @@ SqlConnection connection = new SqlConnection("""
     """);
 
 
-// Comment until connection.Close(); after first run
+/*                                                           // Comment until connection.Close(); after first run
 connectionMaster.Open();
 DataBaseCreator.CreateDatabase(connectionMaster);         // Create DataBase 
 connectionMaster.Close();
@@ -34,13 +34,14 @@ DataBaseCreator.InsertData(connection);             // Insert Data to the Table
 DataBaseCreator.CountMethod(connection);            // Count Datas in table
 
 connection.Close();
+*/
 
 
-/*          //uncomment the following lines to create DataSet And use DataAdapter
+                        //uncomment the following lines to create DataSet And use DataAdapter
 
 DataSet TestDB_DS = new DataSet();
 Microsoft.Data.SqlClient.SqlDataAdapter adapter = new Microsoft.Data.SqlClient.SqlDataAdapter("""
-    SP_SelectPerson
+    SELECT * FROM Person
     """, connection);
 
 adapter.Fill(TestDB_DS, "Person");
@@ -50,5 +51,3 @@ foreach (DataRow row in TestDB_DS.Tables["Person"].Rows)
     Console.WriteLine($"     Name: {row["Name"]}, Age: {row["Age"]} Email: {row["Email"]} NationalCode {row["NationalCode"]}");
     Console.WriteLine("*************************************************************************************");
 }
-
-*/
