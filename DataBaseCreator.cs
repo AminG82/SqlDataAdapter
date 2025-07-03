@@ -1,19 +1,26 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SqlDataAdapter
 {
     public static class DataBaseCreator
     {
+        static void CreateDatabase(SqlConnection ConnectionString)
+        {
+            SqlCommand createCommand = new SqlCommand("""
+            CREATE TABLE Person (
+                Id INT PRIMARY KEY IDENTITY(1,1),
+                Name NVARCHAR(100) NOT NULL,
+                Age INT NOT NULL
+            )
+            """, ConnectionString);
+            createCommand.ExecuteNonQuery();
+        }
         static void CountMethod(SqlConnection ConnectionString)
         {
             SqlCommand countCommand = new SqlCommand("""
             SELECT COUNT(*) FROM Person
             """, ConnectionString);
+            Console.WriteLine(countCommand.ExecuteScalar());
         }
     }
 }

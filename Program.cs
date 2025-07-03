@@ -2,19 +2,10 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-
 SqlConnection connection = new SqlConnection("""
     Data Source =.; Initial Catalog = TestDB; User ID = sa; Password = amin5123; Encrypt = False;
     """);
 
-
-SqlCommand countCommand = new SqlCommand("""
-    SELECT COUNT(*) FROM Person
-    """, connection);
-
-SqlCommand createDataBase = new SqlCommand("""
-    Create Database TestDB
-    """, connection);
 
 SqlCommand createTable = new SqlCommand("""
     Create Table Person
