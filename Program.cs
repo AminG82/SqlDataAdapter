@@ -26,8 +26,9 @@ SqlCommand insertData = new SqlCommand("""
     """, connection);
 
 //connection.Open();
-//int count = (int)command.ExecuteScalar();
-//Console.WriteLine($"Number of records in Person table: {count}");
+
+
+
 //connection.Close();
 
 DataSet TestDB_DS = new DataSet();

@@ -4,6 +4,8 @@ namespace SqlDataAdapter
 {
     public static class DataBaseCreator
     {
+
+        // Use Only Whene Connection is Open!
         static void CreateDatabase(SqlConnection ConnectionString)
         {
             SqlCommand createCommand = new SqlCommand("""
@@ -20,7 +22,7 @@ namespace SqlDataAdapter
             SqlCommand countCommand = new SqlCommand("""
             SELECT COUNT(*) FROM Person
             """, ConnectionString);
-            Console.WriteLine(countCommand.ExecuteScalar());
+            Console.WriteLine($"Number of Datas in DB : {countCommand.ExecuteScalar()}");
         }
     }
 }
